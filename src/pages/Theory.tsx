@@ -11,7 +11,7 @@ const Accordion: React.FC<{ title: string; children: React.ReactNode; defaultOpe
         onClick={() => setOpen(v => !v)}
         className="w-full flex items-center justify-between px-6 py-4 bg-parchment-old hover:bg-parchment-old transition-colors text-left group"
       >
-        <span className="font-playfair text-sepia text-sm tracking-[0.1em] group-hover:text-ink-old transition-colors">{title}</span>
+        <span className="font-playfair text-sepia text-base tracking-[0.1em] font-semibold group-hover:text-ink-old transition-colors">{title}</span>
         <span className={`text-gold-classic/50 transition-transform duration-300 text-lg ${open ? 'rotate-45' : ''}`}>+</span>
       </button>
       {open && (
@@ -43,7 +43,7 @@ const ThreeCol: React.FC<{ items: { title: string; points: string[] }[] }> = ({ 
   }}>
   <div className="absolute top-2 left-2 w-3 h-3 border-t border-l border-[#c9a84c]/40" />
   <div className="absolute bottom-2 right-2 w-3 h-3 border-b border-r border-[#c9a84c]/40" />
-  <h4 className="font-playfair text-[#c9a84c] text-xs tracking-[0.12em] uppercase mb-3">{item.title}</h4>
+  <h4 className="font-playfair text-[#c9a84c] text-sm tracking-[0.12em] uppercase mb-3 font-semibold">{item.title}</h4>
   <div className="w-8 h-px bg-gradient-to-r from-[#c9a84c]/50 to-transparent mb-3" />
   <ul className="space-y-1.5">
     {item.points.map((p, j) => (
@@ -65,8 +65,8 @@ const SH: React.FC<{ num: string; title: string; sub?: string }> = ({ num, title
       <div className="font-playfair text-gold-classic/25 text-4xl font-black">{num}</div>
       <span className="block w-px h-10 bg-[rgba(201,168,76,0.2)]" />
       <div>
-        <h2 className="font-playfair text-ink-old text-xl md:text-2xl tracking-[0.1em] uppercase">{title}</h2>
-        {sub && <p className="font-merriweather italic text-sepia/50 text-sm mt-1">{sub}</p>}
+        <h2 className="font-playfair text-ink-old text-2xl md:text-3xl font-bold tracking-[0.1em] uppercase">{title}</h2>
+        {sub && <p className="font-merriweather italic text-sepia/60 text-base mt-1">{sub}</p>}
       </div>
     </div>
     <span className="block w-24 h-px bg-gradient-to-r from-gold-classic/40 to-transparent" />
@@ -93,15 +93,15 @@ const Theory: React.FC = () => {
       <div className="border-b border-gold-classic/15 py-16 px-6 text-center relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: 'radial-gradient(ellipse at center, rgba(201,168,76,0.04) 0%, transparent 70%)' }} />
-        <span className="font-prata text-gold-classic/50 text-xs tracking-[0.3em] uppercase block mb-3">MLN111 — Nhóm 7</span>
+        <span className="font-prata text-gold-classic/60 text-sm tracking-[0.3em] uppercase block mb-3">MLN111 — Nhóm 7</span>
         <h1 className="font-playfair text-ink-old text-3xl md:text-4xl tracking-[0.1em] uppercase mb-4">Lý Thuyết</h1>
-        <p className="font-merriweather italic text-sepia/50 max-w-xl mx-auto">Chủ nghĩa duy vật biện chứng — nền tảng thế giới quan và phương pháp luận của triết học Mác–Lênin</p>
+        <p className="font-merriweather italic text-sepia/60 text-lg max-w-xl mx-auto">Chủ nghĩa duy vật biện chứng — nền tảng thế giới quan và phương pháp luận của triết học Mác–Lênin</p>
       </div>
 
       {/* TOC */}
       <nav className="max-w-3xl mx-auto px-6 py-8">
         <div className="border border-gold-classic/20 p-6 bg-parchment-old/80">
-          <p className="font-prata text-gold-classic/60 text-[10px] tracking-[0.3em] uppercase mb-4">Mục Lục</p>
+          <p className="font-prata text-gold-classic/60 text-xs tracking-[0.3em] uppercase mb-4">Mục Lục</p>
           <div className="space-y-2">
             {[
               ['#vat-chat', 'I. Vật Chất và Ý Thức'],
@@ -109,7 +109,7 @@ const Theory: React.FC = () => {
               ['#nhan-thuc', 'III. Lý Luận Nhận Thức'],
             ].map(([href, label]) => (
               <a key={href} href={href}
-                className="flex items-center gap-3 font-garamond text-sepia/60 hover:text-sepia transition-colors text-lg group">
+                className="flex items-center gap-3 font-garamond text-sepia/70 hover:text-sepia transition-colors text-xl group">
                 <span className="block w-4 h-px bg-[rgba(201,168,76,0.2)] group-hover:w-8 group-hover:bg-[#c9a84c]/50 transition-all" />
                 {label}
               </a>
@@ -169,13 +169,13 @@ const Theory: React.FC = () => {
                 <div key={i} className="relative overflow-hidden rounded-sm p-4"
                   style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
                   <div className="absolute top-2 left-2 w-3 h-3 border-t border-l border-[#c9a84c]/40" />
-                  <p className="font-playfair text-[#c9a84c] text-xs tracking-[0.1em] mb-2">{item.k}</p>
+                  <p className="font-playfair text-[#c9a84c] text-sm tracking-[0.1em] font-semibold mb-2">{item.k}</p>
                   <p className="font-garamond text-[#c8b99a] text-base">{item.v}</p>
                 </div>
               ))}
             </div>
             <div className="mt-4 border border-gold-classic/15 p-5 bg-parchment-old">
-              <p className="font-playfair text-gold-classic text-xs tracking-[0.12em] uppercase mb-3">5 Hình thức vận động cơ bản (từ thấp → cao)</p>
+              <p className="font-playfair text-gold-classic text-sm tracking-[0.12em] uppercase mb-3 font-semibold">5 Hình thức vận động cơ bản (từ thấp → cao)</p>
               <div className="flex flex-wrap gap-2">
                 {['Cơ học', 'Vật lý', 'Hóa học', 'Sinh học', 'Xã hội'].map((f, i) => (
                   <span key={i} className="px-4 py-1.5 border border-[rgba(201,168,76,0.2)] font-prata text-xs tracking-[0.1em] text-sepia">
@@ -207,7 +207,7 @@ const Theory: React.FC = () => {
                 },
               ].map((col, i) => (
                 <div key={i} className="relative overflow-hidden rounded-sm p-5" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(201,168,76,0.08)' }}>
-                  <p className="font-playfair text-gold-classic text-xs tracking-[0.12em] uppercase mb-3">{col.label}</p>
+                  <p className="font-playfair text-gold-classic text-sm tracking-[0.12em] uppercase mb-3 font-semibold">{col.label}</p>
                   <ul className="space-y-2">
                     {col.points.map((p, j) => (
                       <li key={j} className="font-garamond text-[#c8b99a] text-base flex gap-2">
@@ -224,7 +224,7 @@ const Theory: React.FC = () => {
           <Accordion title="1.4 — Nguồn Gốc, Bản Chất và Kết Cấu của Ý Thức">
             <div className="space-y-4">
               <div className="relative overflow-hidden rounded-sm p-5" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(201,168,76,0.08)' }}>
-                <p className="font-playfair text-gold-classic text-xs tracking-[0.12em] uppercase mb-3">Nguồn gốc của ý thức</p>
+                <p className="font-playfair text-gold-classic text-sm tracking-[0.12em] uppercase mb-3 font-semibold">Nguồn gốc của ý thức</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <p className="font-prata text-[#c9a84c]/70 text-xs uppercase tracking-[0.1em] mb-2">Tự nhiên</p>
@@ -237,7 +237,7 @@ const Theory: React.FC = () => {
                 </div>
               </div>
               <div className="relative overflow-hidden rounded-sm p-5" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(201,168,76,0.08)' }}>
-                <p className="font-playfair text-gold-classic text-xs tracking-[0.12em] uppercase mb-3">Bản chất của ý thức</p>
+                <p className="font-playfair text-gold-classic text-sm tracking-[0.12em] uppercase mb-3 font-semibold">Bản chất của ý thức</p>
                 <ul className="space-y-2">
                   {[
                     'Là hình ảnh chủ quan của thực tại khách quan — phản ánh thế giới vật chất qua giác quan và não bộ',
@@ -263,7 +263,7 @@ const Theory: React.FC = () => {
                 { t: 'Ý thức → Vật chất', ps: ['Khoa học–công nghệ (ý thức mới) → tạo ra vật chất mới (máy tính, AI)', 'Phong trào giáo dục, môi trường thay đổi nhận thức → thay đổi hành vi xã hội', 'Ý chí, kế hoạch đúng đắn thúc đẩy thực tiễn tiến lên'] },
               ].map((col, i) => (
                 <div key={i} className="relative overflow-hidden rounded-sm p-5" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(201,168,76,0.08)' }}>
-                  <p className="font-playfair text-gold-classic text-xs tracking-[0.1em] uppercase mb-3">{col.t}</p>
+                  <p className="font-playfair text-gold-classic text-sm tracking-[0.1em] font-semibold uppercase mb-3">{col.t}</p>
                   <ul className="space-y-1.5">
                     {col.ps.map((p, j) => (
                       <li key={j} className="font-garamond text-[#c8b99a] text-base flex gap-2">
@@ -288,13 +288,13 @@ const Theory: React.FC = () => {
                 { t: 'Biện chứng chủ quan', d: 'Sự phản ánh biện chứng khách quan vào trong tư duy con người. Là biện chứng của khái niệm, phán đoán, suy luận.' },
               ].map((item, i) => (
                 <div key={i} className="relative overflow-hidden rounded-sm p-5" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(201,168,76,0.08)' }}>
-                  <p className="font-playfair text-gold-classic text-xs tracking-[0.1em] uppercase mb-2">{item.t}</p>
+                  <p className="font-playfair text-gold-classic text-sm tracking-[0.1em] font-semibold uppercase mb-2">{item.t}</p>
                   <p className="font-garamond text-[#c8b99a] text-base">{item.d}</p>
                 </div>
               ))}
             </div>
             <div className="mt-3 p-4 border-l-2 border-gold-classic/40 pl-5">
-              <p className="font-garamond text-sepia text-lg"><strong className="font-playfair text-gold-classic text-xs tracking-[0.1em] uppercase">Phép biện chứng duy vật</strong> là sự thống nhất giữa biện chứng khách quan và biện chứng chủ quan — tức khoa học về những quy luật phổ biến nhất của tự nhiên, xã hội và tư duy.</p>
+              <p className="font-garamond text-sepia text-lg"><strong className="font-playfair text-gold-classic text-sm tracking-[0.1em] font-semibold uppercase">Phép biện chứng duy vật</strong> là sự thống nhất giữa biện chứng khách quan và biện chứng chủ quan — tức khoa học về những quy luật phổ biến nhất của tự nhiên, xã hội và tư duy.</p>
             </div>
           </Accordion>
 
@@ -311,7 +311,7 @@ const Theory: React.FC = () => {
                 },
               ].map((item, i) => (
                 <div key={i} className="relative overflow-hidden rounded-sm p-5" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(201,168,76,0.08)' }}>
-                  <p className="font-playfair text-gold-classic text-xs tracking-[0.1em] uppercase mb-2">{item.title}</p>
+                  <p className="font-playfair text-gold-classic text-sm tracking-[0.1em] font-semibold uppercase mb-2">{item.title}</p>
                   <p className="font-garamond text-[#c8b99a] text-base">{item.desc}</p>
                 </div>
               ))}
@@ -357,7 +357,7 @@ const Theory: React.FC = () => {
               ].map((law, i) => (
                 <div key={i} className="relative overflow-hidden rounded-sm p-6" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
                   <div className="flex items-start gap-4">
-                    <span className="font-playfair text-gold-classic/20 text-3xl font-black flex-none">{law.num}</span>
+                    <span className="font-playfair text-gold-classic/30 text-4xl font-black flex-none">{law.num}</span>
                     <div>
                       <p className="font-playfair text-sepia text-sm tracking-[0.08em] uppercase">{law.title}</p>
                       <p className="font-merriweather italic text-gold-classic/60 text-sm mt-0.5 mb-3">{law.role}</p>
@@ -386,8 +386,8 @@ const Theory: React.FC = () => {
                 { pair: 'Khả năng — Hiện thực', rule: 'Cần điều kiện để biến khả năng thành hiện thực', ex: 'Hạt thóc (hiện thực) có khả năng thành cây lúa nếu được gieo trồng' },
               ].map((item, i) => (
                 <div key={i} className="relative overflow-hidden rounded-sm p-5" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(201,168,76,0.08)' }}>
-                  <p className="font-playfair text-gold-classic text-xs tracking-[0.1em] uppercase mb-1">{item.pair}</p>
-                  <p className="font-prata text-sepia/50 text-[11px] tracking-[0.12em] italic mb-3">{item.rule}</p>
+                  <p className="font-playfair text-gold-classic text-sm tracking-[0.1em] font-semibold uppercase mb-1">{item.pair}</p>
+                  <p className="font-prata text-sepia/60 text-xs tracking-[0.12em] italic mb-3">{item.rule}</p>
                   <p className="font-garamond text-[#c8b99a] text-base">{item.ex}</p>
                 </div>
               ))}
@@ -421,7 +421,7 @@ const Theory: React.FC = () => {
           <Accordion title="3.2 — Lý Luận Nhận Thức Duy Vật Biện Chứng">
             <div className="space-y-4">
               <div className="relative overflow-hidden rounded-sm p-5" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(201,168,76,0.08)' }}>
-                <p className="font-playfair text-gold-classic text-xs tracking-[0.12em] uppercase mb-3">Bốn nguyên tắc cơ bản</p>
+                <p className="font-playfair text-gold-classic text-sm tracking-[0.12em] uppercase mb-3 font-semibold">Bốn nguyên tắc cơ bản</p>
                 <ol className="space-y-2">
                   {[
                     'Thừa nhận thế giới vật chất tồn tại khách quan, độc lập với ý thức con người',
@@ -436,7 +436,7 @@ const Theory: React.FC = () => {
                 </ol>
               </div>
               <div className="relative overflow-hidden rounded-sm p-5" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(201,168,76,0.08)' }}>
-                <p className="font-playfair text-gold-classic text-xs tracking-[0.12em] uppercase mb-3">Quy luật của quá trình nhận thức</p>
+                <p className="font-playfair text-gold-classic text-sm tracking-[0.12em] uppercase mb-3 font-semibold">Quy luật của quá trình nhận thức</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
                     {
@@ -472,7 +472,7 @@ const Theory: React.FC = () => {
                 { t: 'Tính tương đối', d: 'Phần lớn chân lý phản ánh đúng nhưng chưa đầy đủ — phát triển từ chân lý tương đối lên tuyệt đối qua thực tiễn' },
               ].map((item, i) => (
                 <div key={i} className="relative overflow-hidden rounded-sm p-4" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
-                  <p className="font-playfair text-gold-classic text-xs tracking-[0.1em] uppercase mb-2">{item.t}</p>
+                  <p className="font-playfair text-gold-classic text-sm tracking-[0.1em] font-semibold uppercase mb-2">{item.t}</p>
                   <p className="font-garamond text-[#c8b99a]/80 text-sm">{item.d}</p>
                 </div>
               ))}

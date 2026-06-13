@@ -162,7 +162,7 @@ export const MatchingGame: React.FC = () => {
       <div className="w-full max-w-4xl mb-4 flex items-center justify-between gap-3">
         <div className="flex gap-2 items-center">
           <div className="px-4 py-2 border border-[rgba(201,168,76,0.15)] bg-parchment-old">
-            <span className="font-prata text-xs tracking-[0.2em] uppercase text-sepia/50">Thời gian </span>
+            <span className="font-prata text-sm tracking-[0.2em] uppercase text-sepia/50 font-semibold">Thời gian </span>
             <span className={`font-playfair text-sm font-bold ${timeLeft < 30 && isPlaying ? 'text-rose-400' : 'text-sepia'}`}>
               {phase === 'playing' ? fmtTime(timeLeft) : '--:--'}
             </span>
@@ -190,7 +190,7 @@ export const MatchingGame: React.FC = () => {
           </p>
         </div>
         <div className="px-4 py-2 border border-[rgba(201,168,76,0.15)] bg-parchment-old text-right">
-          <span className="font-prata text-xs tracking-[0.2em] uppercase text-sepia/50">Điểm </span>
+          <span className="font-prata text-sm tracking-[0.2em] uppercase text-sepia/50 font-semibold">Điểm </span>
           <span className="font-playfair text-sm font-bold text-sepia">{score}</span>
         </div>
       </div>
@@ -201,8 +201,8 @@ export const MatchingGame: React.FC = () => {
             className="w-full max-w-3xl border border-[rgba(201,168,76,0.15)] bg-parchment-old/80 p-8 md:p-10 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-[#c9a84c]/20" />
             <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-[#c9a84c]/20" />
-            <p className="font-prata text-gold-classic/50 text-xs tracking-[0.3em] uppercase mb-2">Hướng dẫn</p>
-            <h2 className="font-playfair text-ink-old text-2xl tracking-[0.08em] uppercase mb-8">Trò Chơi Ghép Thẻ</h2>
+            <p className="font-prata text-gold-classic/60 text-sm tracking-[0.3em] uppercase mb-2">Hướng dẫn</p>
+            <h2 className="font-playfair text-ink-old text-3xl tracking-[0.08em] uppercase mb-8">Trò Chơi Ghép Thẻ</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               {[
                 {
@@ -215,7 +215,7 @@ export const MatchingGame: React.FC = () => {
                 },
               ].map((col, i) => (
                 <div key={i} className="relative overflow-hidden rounded-sm p-5" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(201,168,76,0.08)' }}>
-                  <p className="font-playfair text-gold-classic text-xs tracking-[0.12em] uppercase mb-3">{col.title}</p>
+                  <p className="font-playfair text-gold-classic text-sm tracking-[0.12em] uppercase mb-3 font-semibold">{col.title}</p>
                   <ul className="space-y-1.5">
                     {col.items.map((item, j) => (
                       <li key={j} className="font-garamond text-[#c8b99a] text-base flex gap-2">
@@ -366,7 +366,7 @@ export const MatchingGame: React.FC = () => {
                 <p className="font-prata text-sepia/50 text-xs tracking-[0.25em] uppercase mb-2">Tổng điểm</p>
                 <p className="font-playfair text-gold-classic text-6xl font-black tracking-wider">{finalScore ?? score}</p>
                 <span className="block w-12 h-px bg-[rgba(201,168,76,0.2)] mx-auto mt-6 mb-4" />
-                <p className="font-merriweather italic text-sepia/50">
+                <p className="font-merriweather italic text-sepia/60 text-lg">
                   {endState === 'won'
                     ? `Thời gian còn lại: ${timeLeft}s · Bonus: +${Math.max(0, timeLeft) * BONUS_PER_SEC}`
                     : 'Hãy thử lại để cải thiện thành tích của bạn.'}

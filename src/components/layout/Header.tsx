@@ -34,7 +34,7 @@ export const Header: React.FC = () => {
           <div className="w-8 h-8 border border-gold-classic/60 flex items-center justify-center group-hover:border-gold-classic transition-colors">
             <span className="font-playfair text-gold-classic text-xs font-bold">M</span>
           </div>
-          <span className="font-playfair text-sepia text-sm tracking-[0.2em] uppercase group-hover:text-gold-classic transition-colors">
+          <span className="font-playfair text-sepia text-base tracking-[0.2em] uppercase group-hover:text-gold-classic transition-colors">
             MLN111
           </span>
         </Link>
@@ -47,7 +47,7 @@ export const Header: React.FC = () => {
               to={item.to}
               end={item.to === '/'}
               className={({ isActive }) =>
-                `font-prata text-xs tracking-[0.18em] uppercase transition-all duration-300 relative group ${
+                `font-prata text-sm tracking-[0.18em] uppercase transition-all duration-300 relative group ${
                   isActive ? 'text-gold-classic' : 'text-sepia/60 hover:text-sepia'
                 }`
               }
@@ -83,7 +83,7 @@ export const Header: React.FC = () => {
               to={item.to}
               end={item.to === '/'}
               className={({ isActive }) =>
-                `block py-3 font-prata text-xs tracking-[0.18em] uppercase border-b border-gold-classic/10 transition-colors ${
+                `block py-3 font-prata text-sm tracking-[0.18em] uppercase border-b border-gold-classic/10 transition-colors ${
                   isActive ? 'text-gold-classic' : 'text-sepia/60'
                 }`
               }

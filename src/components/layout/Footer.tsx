@@ -7,10 +7,10 @@ export const Footer: React.FC = () => (
         <div className="w-6 h-6 border border-[#c9a84c]/40 flex items-center justify-center">
           <span className="font-playfair text-gold-classic text-[10px] font-bold">M</span>
         </div>
-        <span className="font-prata text-sepia/70 text-xs tracking-[0.15em] uppercase">MLN111 — Nhóm 7</span>
+        <span className="font-prata text-sepia/70 text-sm tracking-[0.15em] uppercase">MLN111 — Nhóm 7</span>
       </div>
       <span className="deco-line-center" />
-      <p className="font-garamond text-sepia/70 text-sm italic text-center">
+      <p className="font-garamond text-sepia/70 text-base italic text-center">
         "Tính thống nhất của thế giới không phải là sự tồn tại của nó, mà là tính vật chất của nó." — Engels
       </p>
     </div>
