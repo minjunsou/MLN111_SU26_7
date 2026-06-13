@@ -386,8 +386,8 @@ const Theory: React.FC = () => {
                 { pair: 'Khả năng — Hiện thực', rule: 'Cần điều kiện để biến khả năng thành hiện thực', ex: 'Hạt thóc (hiện thực) có khả năng thành cây lúa nếu được gieo trồng' },
               ].map((item, i) => (
                 <div key={i} className="relative overflow-hidden rounded-sm p-5" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(201,168,76,0.08)' }}>
-                  <p className="font-playfair text-gold-classic text-sm tracking-[0.1em] font-semibold uppercase mb-1">{item.pair}</p>
-                  <p className="font-prata text-[#c9a84c]/80 text-xs tracking-[0.12em] italic mb-3">{item.rule}</p>
+                  <p className="font-playfair text-[#f0e6cc] text-sm tracking-[0.1em] uppercase font-bold mb-1">{item.pair}</p>
+                  <p className="font-prata text-[#c9a84c]/70 text-xs tracking-[0.12em] italic mb-3">{item.rule}</p>
                   <p className="font-garamond text-[#c8b99a] text-base">{item.ex}</p>
                 </div>
               ))}
