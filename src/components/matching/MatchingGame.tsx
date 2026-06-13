@@ -151,10 +151,10 @@ export const MatchingGame: React.FC = () => {
 
   // Feedback colors
   const fbColors = feedback.kind === 'success'
-    ? { border: 'border-emerald-800/40', bg: 'bg-emerald-950/20', icon: '◈', iconColor: 'text-emerald-500' }
+    ? { border: 'border-emerald-700/60', bg: 'bg-[#0d1f12]', icon: '◈', iconColor: 'text-emerald-400' }
     : feedback.kind === 'error'
-    ? { border: 'border-rose-800/40', bg: 'bg-rose-950/20', icon: '✕', iconColor: 'text-rose-500' }
-    : { border: 'border-[rgba(201,168,76,0.2)]', bg: 'bg-parchment-old', icon: '◎', iconColor: 'text-gold-classic/50' }
+    ? { border: 'border-rose-700/60', bg: 'bg-[#1f0d0d]', icon: '✕', iconColor: 'text-rose-400' }
+    : { border: 'border-[rgba(201,168,76,0.2)]', bg: 'bg-[#12100e]', icon: '◎', iconColor: 'text-[#c9a84c]/50' }
 
   return (
     <div className="w-full flex flex-col items-center min-h-[calc(100vh-80px)]">
@@ -297,12 +297,12 @@ export const MatchingGame: React.FC = () => {
                       {fbColors.icon}
                     </div>
                     <div className="min-w-0">
-                      <p className="font-playfair text-sepia text-sm tracking-[0.08em] uppercase mb-1">{feedback.title}</p>
-                      <p className="font-garamond text-[#c8b99a] text-base leading-relaxed">{feedback.body}</p>
+                      <p className="font-cinzel text-[#f0e6cc] text-sm tracking-[0.08em] uppercase mb-1">{feedback.title}</p>
+                      <p className="font-cormorant text-[#c8b99a] text-base leading-relaxed">{feedback.body}</p>
                     </div>
                   </div>
                   <div className="mt-5 pt-4 border-t border-gold-classic/10">
-                    <div className="flex justify-between font-prata text-xs tracking-[0.15em] uppercase text-sepia/50">
+                    <div className="flex justify-between font-sc text-xs tracking-[0.15em] uppercase text-[#c8b99a]/60">
                       <span>Tiến độ: {matchedCount / 2}/{totalCards / 2} cặp</span>
                       {phase === 'playing' && <span>Bonus: +{bonusPreview}</span>}
                     </div>
