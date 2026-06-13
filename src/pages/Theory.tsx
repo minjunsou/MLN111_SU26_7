@@ -357,10 +357,10 @@ const Theory: React.FC = () => {
               ].map((law, i) => (
                 <div key={i} className="relative overflow-hidden rounded-sm p-6" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
                   <div className="flex items-start gap-4">
-                    <span className="font-playfair text-gold-classic/30 text-4xl font-black flex-none">{law.num}</span>
+                    <span className="font-playfair text-[#c9a84c]/70 text-3xl font-black flex-none">{law.num}</span>
                     <div>
-                      <p className="font-playfair text-sepia text-sm tracking-[0.08em] uppercase">{law.title}</p>
-                      <p className="font-merriweather italic text-gold-classic/60 text-sm mt-0.5 mb-3">{law.role}</p>
+                      <p className="font-playfair text-[#f0e6cc] text-sm tracking-[0.08em] uppercase font-bold">{law.title}</p>
+                      <p className="font-merriweather italic text-[#c9a84c] text-sm mt-0.5 mb-3">{law.role}</p>
                       <ul className="space-y-1.5">
                         {law.points.map((p, j) => (
                           <li key={j} className="font-garamond text-[#c8b99a] text-base flex gap-2">
