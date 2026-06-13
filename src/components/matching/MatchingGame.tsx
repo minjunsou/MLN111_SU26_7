@@ -214,11 +214,11 @@ export const MatchingGame: React.FC = () => {
                   items: [`Ghép đúng: +${SCORE_MATCH} điểm`, `Ghép sai: −${SCORE_MISS} điểm`, `Bonus thắng: +${BONUS_PER_SEC}/giây còn lại`],
                 },
               ].map((col, i) => (
-                <div key={i} className="border border-gold-classic/15 p-5 bg-parchment-old">
+                <div key={i} className="relative overflow-hidden rounded-sm p-5" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(201,168,76,0.08)' }}>
                   <p className="font-playfair text-gold-classic text-xs tracking-[0.12em] uppercase mb-3">{col.title}</p>
                   <ul className="space-y-1.5">
                     {col.items.map((item, j) => (
-                      <li key={j} className="font-garamond text-sepia/60 text-base flex gap-2">
+                      <li key={j} className="font-garamond text-[#c8b99a] text-base flex gap-2">
                         <span className="text-gold-classic/40 flex-none">·</span> {item}
                       </li>
                     ))}
@@ -298,7 +298,7 @@ export const MatchingGame: React.FC = () => {
                     </div>
                     <div className="min-w-0">
                       <p className="font-playfair text-sepia text-sm tracking-[0.08em] uppercase mb-1">{feedback.title}</p>
-                      <p className="font-garamond text-sepia/60 text-base leading-relaxed">{feedback.body}</p>
+                      <p className="font-garamond text-[#c8b99a] text-base leading-relaxed">{feedback.body}</p>
                     </div>
                   </div>
                   <div className="mt-5 pt-4 border-t border-gold-classic/10">

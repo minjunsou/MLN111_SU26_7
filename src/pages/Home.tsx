@@ -115,21 +115,56 @@ const Home: React.FC = () => {
       </section>
 
       {/* Game CTA */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <div className="border border-[rgba(201,168,76,0.15)] p-12 md:p-16 relative overflow-hidden"
-          style={{ background: 'linear-gradient(135deg, rgba(67,52,34,0.92) 0%, rgba(30,22,14,0.97) 100%)' }}>
-          <div className="absolute top-0 right-0 w-32 h-32 opacity-5"
-            style={{ background: 'radial-gradient(circle at top right, #c9a84c, transparent)' }} />
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div>
-              <p className="font-prata text-gold-classic/60 text-xs tracking-[0.3em] uppercase mb-2">Kiểm tra kiến thức</p>
-              <h3 className="font-playfair text-ink-old text-2xl md:text-3xl tracking-[0.08em] mb-3">Trò Chơi Ghép Thẻ</h3>
-              <p className="font-garamond italic text-sepia/50 max-w-md">Ghép đúng các khái niệm, quy luật và phạm trù của phép biện chứng duy vật trong thời gian giới hạn.</p>
-            </div>
-            <Link to="/game" className="btn-gold flex-none">Chơi Ngay</Link>
-          </div>
-        </div>
-      </section>
+<section className="max-w-6xl mx-auto px-6 py-20">
+  <div className="relative overflow-hidden rounded-sm"
+    style={{
+      background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 40%, #1a1208 100%)',
+      border: '1px solid rgba(201,168,76,0.45)',
+      boxShadow: '0 0 40px rgba(201,168,76,0.08), inset 0 1px 0 rgba(201,168,76,0.1)',
+    }}>
+
+    {/* Glow corners */}
+    <div className="absolute top-0 left-0 w-20 h-20"
+      style={{ background: 'radial-gradient(circle at top left, rgba(201,168,76,0.15), transparent 70%)' }} />
+    <div className="absolute bottom-0 right-0 w-20 h-20"
+      style={{ background: 'radial-gradient(circle at bottom right, rgba(201,168,76,0.15), transparent 70%)' }} />
+
+    {/* Corner brackets */}
+    <div className="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-[#c9a84c]/60" />
+    <div className="absolute top-3 right-3 w-5 h-5 border-t-2 border-r-2 border-[#c9a84c]/60" />
+    <div className="absolute bottom-3 left-3 w-5 h-5 border-b-2 border-l-2 border-[#c9a84c]/60" />
+    <div className="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-[#c9a84c]/60" />
+
+    <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 p-12 md:p-16">
+      {/* Divider dọc */}
+      <div className="hidden md:block w-px self-stretch bg-gradient-to-b from-transparent via-[#c9a84c]/30 to-transparent mx-4" />
+
+      <div className="flex-1">
+        <p className="font-sc text-[#c9a84c] text-xs tracking-[0.35em] uppercase mb-3">Kiểm tra kiến thức</p>
+        <h3 className="font-cinzel text-[#f0e6cc] text-3xl md:text-4xl tracking-[0.06em] mb-4 leading-tight">
+          Trò Chơi Ghép Thẻ
+        </h3>
+        <div className="w-12 h-px bg-gradient-to-r from-[#c9a84c]/60 to-transparent mb-4" />
+        <p className="font-cormorant text-[#c8b99a] text-xl leading-relaxed max-w-md">
+          Ghép đúng các khái niệm, quy luật và phạm trù của phép biện chứng duy vật trong thời gian giới hạn.
+        </p>
+      </div>
+
+      <div className="flex-none">
+        <Link to="/game"
+          className="font-cinzel text-sm tracking-[0.2em] uppercase px-10 py-4 block transition-all duration-300 hover:scale-105"
+          style={{
+            background: 'linear-gradient(135deg, #c9a84c, #e0c36e)',
+            color: '#1a1208',
+            fontWeight: 700,
+            boxShadow: '0 4px 20px rgba(201,168,76,0.3)',
+          }}>
+          Chơi Ngay
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
     </div>
   )
 }

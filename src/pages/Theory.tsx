@@ -35,17 +35,25 @@ const InfoBox: React.FC<{ label: string; children: React.ReactNode }> = ({ label
 const ThreeCol: React.FC<{ items: { title: string; points: string[] }[] }> = ({ items }) => (
   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
     {items.map((item, i) => (
-      <div key={i} className="border border-gold-classic/15 p-5 bg-parchment-old">
-        <h4 className="font-playfair text-gold-classic text-xs tracking-[0.12em] uppercase mb-3">{item.title}</h4>
-        <ul className="space-y-1.5">
-          {item.points.map((p, j) => (
-            <li key={j} className="font-garamond text-sepia/60 text-base flex gap-2">
-              <span className="text-gold-classic/40 mt-1">·</span>
-              <span>{p}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <div key={i} className="relative overflow-hidden rounded-sm p-5"
+  style={{
+    background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)',
+    border: '1px solid rgba(201,168,76,0.35)',
+    boxShadow: '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(201,168,76,0.08)',
+  }}>
+  <div className="absolute top-2 left-2 w-3 h-3 border-t border-l border-[#c9a84c]/40" />
+  <div className="absolute bottom-2 right-2 w-3 h-3 border-b border-r border-[#c9a84c]/40" />
+  <h4 className="font-playfair text-[#c9a84c] text-xs tracking-[0.12em] uppercase mb-3">{item.title}</h4>
+  <div className="w-8 h-px bg-gradient-to-r from-[#c9a84c]/50 to-transparent mb-3" />
+  <ul className="space-y-1.5">
+    {item.points.map((p, j) => (
+      <li key={j} className="font-garamond text-[#c8b99a] text-base flex gap-2">
+        <span className="text-[#c9a84c]/50 mt-1 flex-none">·</span>
+        <span>{p}</span>
+      </li>
+    ))}
+  </ul>
+</div>
     ))}
   </div>
 )
@@ -158,9 +166,11 @@ const Theory: React.FC = () => {
                 { k: 'Vận động là tuyệt đối', v: 'Mọi sự vật đều luôn thay đổi — dù ở cấp độ vi mô hay vĩ mô' },
                 { k: 'Đứng yên là tương đối', v: 'Chỉ là ổn định trong một quan hệ xác định, một thời điểm nhất định' },
               ].map((item, i) => (
-                <div key={i} className="p-4 border border-gold-classic/15 bg-parchment-old">
-                  <p className="font-playfair text-gold-classic text-xs tracking-[0.1em] mb-2">{item.k}</p>
-                  <p className="font-garamond text-sepia/60 text-base">{item.v}</p>
+                <div key={i} className="relative overflow-hidden rounded-sm p-4"
+                  style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
+                  <div className="absolute top-2 left-2 w-3 h-3 border-t border-l border-[#c9a84c]/40" />
+                  <p className="font-playfair text-[#c9a84c] text-xs tracking-[0.1em] mb-2">{item.k}</p>
+                  <p className="font-garamond text-[#c8b99a] text-base">{item.v}</p>
                 </div>
               ))}
             </div>
@@ -196,11 +206,11 @@ const Theory: React.FC = () => {
                   ],
                 },
               ].map((col, i) => (
-                <div key={i} className="border border-gold-classic/15 p-5 bg-parchment-old">
+                <div key={i} className="relative overflow-hidden rounded-sm p-5" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(201,168,76,0.08)' }}>
                   <p className="font-playfair text-gold-classic text-xs tracking-[0.12em] uppercase mb-3">{col.label}</p>
                   <ul className="space-y-2">
                     {col.points.map((p, j) => (
-                      <li key={j} className="font-garamond text-sepia/60 text-base flex gap-2">
+                      <li key={j} className="font-garamond text-[#c8b99a] text-base flex gap-2">
                         <span className="text-gold-classic/40 mt-1 flex-none">·</span>
                         {p}
                       </li>
@@ -213,20 +223,20 @@ const Theory: React.FC = () => {
 
           <Accordion title="1.4 — Nguồn Gốc, Bản Chất và Kết Cấu của Ý Thức">
             <div className="space-y-4">
-              <div className="border border-gold-classic/15 p-5 bg-parchment-old">
+              <div className="relative overflow-hidden rounded-sm p-5" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(201,168,76,0.08)' }}>
                 <p className="font-playfair text-gold-classic text-xs tracking-[0.12em] uppercase mb-3">Nguồn gốc của ý thức</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <p className="font-prata text-sepia/60 text-xs uppercase tracking-[0.1em] mb-2">Tự nhiên</p>
-                    <p className="font-garamond text-sepia text-base">Não bộ + giác quan (thị, thính, xúc giác…) → tiếp nhận & xử lý tín hiệu. Cơ sở sinh học: nơron, liên kết thần kinh, vỏ não.</p>
+                    <p className="font-prata text-[#c9a84c]/70 text-xs uppercase tracking-[0.1em] mb-2">Tự nhiên</p>
+                    <p className="font-garamond text-[#c8b99a] text-base">Não bộ + giác quan (thị, thính, xúc giác…) → tiếp nhận & xử lý tín hiệu. Cơ sở sinh học: nơron, liên kết thần kinh, vỏ não.</p>
                   </div>
                   <div>
-                    <p className="font-prata text-sepia/60 text-xs uppercase tracking-[0.1em] mb-2">Xã hội</p>
-                    <p className="font-garamond text-sepia text-base">Lao động (thực tiễn) cải tạo tự nhiên, tạo ra quan hệ xã hội. Ngôn ngữ là công cụ truyền tải, hình thành tư duy trừu tượng.</p>
+                    <p className="font-prata text-[#c9a84c]/70 text-xs uppercase tracking-[0.1em] mb-2">Xã hội</p>
+                    <p className="font-garamond text-[#c8b99a] text-base">Lao động (thực tiễn) cải tạo tự nhiên, tạo ra quan hệ xã hội. Ngôn ngữ là công cụ truyền tải, hình thành tư duy trừu tượng.</p>
                   </div>
                 </div>
               </div>
-              <div className="border border-gold-classic/15 p-5 bg-parchment-old">
+              <div className="relative overflow-hidden rounded-sm p-5" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(201,168,76,0.08)' }}>
                 <p className="font-playfair text-gold-classic text-xs tracking-[0.12em] uppercase mb-3">Bản chất của ý thức</p>
                 <ul className="space-y-2">
                   {[
@@ -234,7 +244,7 @@ const Theory: React.FC = () => {
                     'Là sự phản ánh sáng tạo (không thụ động): con người không chỉ "sao chép" mà còn tạo ra khái quát, mô hình, giải pháp mới',
                     'Mối quan hệ biện chứng: Vật chất → Ý thức (quyết định), nhưng Ý thức tác động ngược lại vật chất qua thực tiễn',
                   ].map((p, i) => (
-                    <li key={i} className="font-garamond text-sepia/60 text-base flex gap-2">
+                    <li key={i} className="font-garamond text-[#c8b99a] text-base flex gap-2">
                       <span className="text-gold-classic/40 mt-1 flex-none">·</span> {p}
                     </li>
                   ))}
@@ -252,11 +262,11 @@ const Theory: React.FC = () => {
                 { t: 'Vật chất → Ý thức', ps: ['Vật chất là nguồn gốc và cơ sở', 'Điều kiện vật chất thay đổi → ý thức thay đổi', 'Não tổn thương → tư tưởng rối loạn'] },
                 { t: 'Ý thức → Vật chất', ps: ['Khoa học–công nghệ (ý thức mới) → tạo ra vật chất mới (máy tính, AI)', 'Phong trào giáo dục, môi trường thay đổi nhận thức → thay đổi hành vi xã hội', 'Ý chí, kế hoạch đúng đắn thúc đẩy thực tiễn tiến lên'] },
               ].map((col, i) => (
-                <div key={i} className="border border-gold-classic/15 p-5 bg-parchment-old">
+                <div key={i} className="relative overflow-hidden rounded-sm p-5" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(201,168,76,0.08)' }}>
                   <p className="font-playfair text-gold-classic text-xs tracking-[0.1em] uppercase mb-3">{col.t}</p>
                   <ul className="space-y-1.5">
                     {col.ps.map((p, j) => (
-                      <li key={j} className="font-garamond text-sepia/60 text-base flex gap-2">
+                      <li key={j} className="font-garamond text-[#c8b99a] text-base flex gap-2">
                         <span className="text-gold-classic/40 mt-1 flex-none">·</span> {p}
                       </li>
                     ))}
@@ -277,9 +287,9 @@ const Theory: React.FC = () => {
                 { t: 'Biện chứng khách quan', d: 'Sự vận động, phát triển của thế giới vật chất (Tự nhiên & Xã hội). Tồn tại độc lập với ý thức con người.' },
                 { t: 'Biện chứng chủ quan', d: 'Sự phản ánh biện chứng khách quan vào trong tư duy con người. Là biện chứng của khái niệm, phán đoán, suy luận.' },
               ].map((item, i) => (
-                <div key={i} className="border border-gold-classic/15 p-5 bg-parchment-old">
+                <div key={i} className="relative overflow-hidden rounded-sm p-5" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(201,168,76,0.08)' }}>
                   <p className="font-playfair text-gold-classic text-xs tracking-[0.1em] uppercase mb-2">{item.t}</p>
-                  <p className="font-garamond text-sepia/60 text-base">{item.d}</p>
+                  <p className="font-garamond text-[#c8b99a] text-base">{item.d}</p>
                 </div>
               ))}
             </div>
@@ -300,9 +310,9 @@ const Theory: React.FC = () => {
                   desc: 'Mọi sự vật luôn vận động đi lên, từ thấp đến cao, từ đơn giản đến phức tạp. → Phải có quan điểm phát triển: không cứng nhắc, không bảo thủ.',
                 },
               ].map((item, i) => (
-                <div key={i} className="border border-gold-classic/15 p-5 bg-parchment-old">
+                <div key={i} className="relative overflow-hidden rounded-sm p-5" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(201,168,76,0.08)' }}>
                   <p className="font-playfair text-gold-classic text-xs tracking-[0.1em] uppercase mb-2">{item.title}</p>
-                  <p className="font-garamond text-sepia/60 text-base">{item.desc}</p>
+                  <p className="font-garamond text-[#c8b99a] text-base">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -345,7 +355,7 @@ const Theory: React.FC = () => {
                   ],
                 },
               ].map((law, i) => (
-                <div key={i} className="border border-gold-classic/15 p-6 bg-parchment-old">
+                <div key={i} className="relative overflow-hidden rounded-sm p-6" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
                   <div className="flex items-start gap-4">
                     <span className="font-playfair text-gold-classic/20 text-3xl font-black flex-none">{law.num}</span>
                     <div>
@@ -353,7 +363,7 @@ const Theory: React.FC = () => {
                       <p className="font-merriweather italic text-gold-classic/60 text-sm mt-0.5 mb-3">{law.role}</p>
                       <ul className="space-y-1.5">
                         {law.points.map((p, j) => (
-                          <li key={j} className="font-garamond text-sepia/60 text-base flex gap-2">
+                          <li key={j} className="font-garamond text-[#c8b99a] text-base flex gap-2">
                             <span className="text-gold-classic/40 flex-none mt-1">·</span> {p}
                           </li>
                         ))}
@@ -375,10 +385,10 @@ const Theory: React.FC = () => {
                 { pair: 'Bản chất — Hiện tượng', rule: 'Hiện tượng bộc lộ bản chất', ex: 'Trái đất quay (bản chất) → Mặt trời "mọc đông lặn tây" (hiện tượng)' },
                 { pair: 'Khả năng — Hiện thực', rule: 'Cần điều kiện để biến khả năng thành hiện thực', ex: 'Hạt thóc (hiện thực) có khả năng thành cây lúa nếu được gieo trồng' },
               ].map((item, i) => (
-                <div key={i} className="border border-gold-classic/15 p-5 bg-parchment-old">
+                <div key={i} className="relative overflow-hidden rounded-sm p-5" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(201,168,76,0.08)' }}>
                   <p className="font-playfair text-gold-classic text-xs tracking-[0.1em] uppercase mb-1">{item.pair}</p>
                   <p className="font-prata text-sepia/50 text-[11px] tracking-[0.12em] italic mb-3">{item.rule}</p>
-                  <p className="font-garamond text-sepia/60 text-base">{item.ex}</p>
+                  <p className="font-garamond text-[#c8b99a] text-base">{item.ex}</p>
                 </div>
               ))}
             </div>
@@ -396,11 +406,12 @@ const Theory: React.FC = () => {
                 { t: 'Chủ nghĩa duy vật trước Mác', d: 'Coi nhận thức là quá trình phản ánh máy móc, thụ động. Không lý giải được một cách khoa học về nguồn gốc, bản chất, đặc điểm của nhận thức.' },
                 { t: 'Chủ nghĩa hoài nghi và bất khả tri', d: 'Phủ nhận hoàn toàn khả năng con người có thể nhận thức được bản chất đích thực của thế giới khách quan (Hume, Kant).' },
               ].map((item, i) => (
-                <div key={i} className="flex gap-4 p-4 border border-gold-classic/10 bg-parchment-old">
-                  <span className="font-playfair text-gold-classic/30 text-xs flex-none mt-1">{String(i + 1).padStart(2, '0')}</span>
+                <div key={i} className="flex gap-4 p-4 rounded-sm"
+                  style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.30)' }}>
+                  <span className="font-playfair text-[#c9a84c]/40 text-xs flex-none mt-1">{String(i + 1).padStart(2, '0')}</span>
                   <div>
-                    <p className="font-playfair text-sepia text-xs tracking-[0.1em] uppercase mb-1">{item.t}</p>
-                    <p className="font-garamond text-sepia/50 text-base">{item.d}</p>
+                    <p className="font-playfair text-[#f0e6cc] text-xs tracking-[0.1em] uppercase mb-1">{item.t}</p>
+                    <p className="font-garamond text-[#c8b99a] text-base">{item.d}</p>
                   </div>
                 </div>
               ))}
@@ -409,7 +420,7 @@ const Theory: React.FC = () => {
 
           <Accordion title="3.2 — Lý Luận Nhận Thức Duy Vật Biện Chứng">
             <div className="space-y-4">
-              <div className="border border-gold-classic/15 p-5 bg-parchment-old">
+              <div className="relative overflow-hidden rounded-sm p-5" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(201,168,76,0.08)' }}>
                 <p className="font-playfair text-gold-classic text-xs tracking-[0.12em] uppercase mb-3">Bốn nguyên tắc cơ bản</p>
                 <ol className="space-y-2">
                   {[
@@ -418,13 +429,13 @@ const Theory: React.FC = () => {
                     'Nhận thức là quá trình phản ánh hiện thực khách quan vào bộ óc con người một cách năng động, sáng tạo',
                     'Lấy thực tiễn làm cơ sở, động lực, mục đích của nhận thức và tiêu chuẩn kiểm tra chân lý',
                   ].map((p, i) => (
-                    <li key={i} className="font-garamond text-sepia/60 text-base flex gap-3">
+                    <li key={i} className="font-garamond text-[#c8b99a] text-base flex gap-3">
                       <span className="font-playfair text-gold-classic/50 text-xs flex-none mt-1">{i + 1}.</span> {p}
                     </li>
                   ))}
                 </ol>
               </div>
-              <div className="border border-gold-classic/15 p-5 bg-parchment-old">
+              <div className="relative overflow-hidden rounded-sm p-5" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(201,168,76,0.08)' }}>
                 <p className="font-playfair text-gold-classic text-xs tracking-[0.12em] uppercase mb-3">Quy luật của quá trình nhận thức</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
@@ -438,13 +449,13 @@ const Theory: React.FC = () => {
                     },
                   ].map((col, i) => (
                     <div key={i}>
-                      <p className="font-prata text-sepia text-xs uppercase tracking-[0.1em] mb-2">{col.t}</p>
-                      <p className="font-garamond text-sepia/50 text-base">{col.d}</p>
+                      <p className="font-prata text-[#c9a84c]/80 text-xs uppercase tracking-[0.1em] mb-2">{col.t}</p>
+                      <p className="font-garamond text-[#c8b99a] text-base">{col.d}</p>
                     </div>
                   ))}
                 </div>
                 <div className="mt-4 p-3 border-l-2 border-[#c9a84c]/30 pl-4">
-                  <p className="font-merriweather italic text-sepia/60">Vòng khâu: Trực quan sinh động → Tư duy trừu tượng → Thực tiễn — đây là con đường biện chứng của sự nhận thức chân lý.</p>
+                  <p className="font-merriweather italic text-[#c8b99a]/80">Vòng khâu: Trực quan sinh động → Tư duy trừu tượng → Thực tiễn — đây là con đường biện chứng của sự nhận thức chân lý.</p>
                 </div>
               </div>
             </div>
@@ -460,9 +471,9 @@ const Theory: React.FC = () => {
                 { t: 'Tính tuyệt đối', d: 'Có những chân lý được phản ánh hoàn toàn đầy đủ, vô điều kiện về sự vật' },
                 { t: 'Tính tương đối', d: 'Phần lớn chân lý phản ánh đúng nhưng chưa đầy đủ — phát triển từ chân lý tương đối lên tuyệt đối qua thực tiễn' },
               ].map((item, i) => (
-                <div key={i} className="border border-gold-classic/15 p-4 bg-parchment-old">
+                <div key={i} className="relative overflow-hidden rounded-sm p-4" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
                   <p className="font-playfair text-gold-classic text-xs tracking-[0.1em] uppercase mb-2">{item.t}</p>
-                  <p className="font-garamond text-sepia/50 text-sm">{item.d}</p>
+                  <p className="font-garamond text-[#c8b99a]/80 text-sm">{item.d}</p>
                 </div>
               ))}
             </div>
