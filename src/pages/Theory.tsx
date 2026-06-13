@@ -436,7 +436,7 @@ const Theory: React.FC = () => {
                 </ol>
               </div>
               <div className="relative overflow-hidden rounded-sm p-5" style={{ background: 'linear-gradient(135deg, #1a1208 0%, #2a1f0e 100%)', border: '1px solid rgba(201,168,76,0.35)', boxShadow: '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(201,168,76,0.08)' }}>
-                <p className="font-playfair text-gold-classic text-sm tracking-[0.12em] uppercase mb-3 font-semibold">Quy luật của quá trình nhận thức</p>
+                <p className="font-playfair text-[#f0e6cc] text-sm tracking-[0.12em] uppercase font-bold mb-3">Quy luật của quá trình nhận thức</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
                     {
