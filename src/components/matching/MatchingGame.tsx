@@ -154,25 +154,25 @@ export const MatchingGame: React.FC = () => {
     ? { border: 'border-emerald-800/40', bg: 'bg-emerald-950/20', icon: '◈', iconColor: 'text-emerald-500' }
     : feedback.kind === 'error'
     ? { border: 'border-rose-800/40', bg: 'bg-rose-950/20', icon: '✕', iconColor: 'text-rose-500' }
-    : { border: 'border-[rgba(201,168,76,0.2)]', bg: 'bg-[#12100e]', icon: '◎', iconColor: 'text-[#c9a84c]/50' }
+    : { border: 'border-[rgba(201,168,76,0.2)]', bg: 'bg-parchment-old', icon: '◎', iconColor: 'text-gold-classic/50' }
 
   return (
     <div className="w-full flex flex-col items-center min-h-[calc(100vh-80px)]">
       {/* HUD */}
       <div className="w-full max-w-4xl mb-4 flex items-center justify-between gap-3">
         <div className="flex gap-2 items-center">
-          <div className="px-4 py-2 border border-[rgba(201,168,76,0.15)] bg-[#12100e]">
-            <span className="font-sc text-xs tracking-[0.2em] uppercase text-[#5c5248]">Thời gian </span>
-            <span className={`font-cinzel text-sm font-bold ${timeLeft < 30 && isPlaying ? 'text-rose-400' : 'text-[#c8b99a]'}`}>
+          <div className="px-4 py-2 border border-[rgba(201,168,76,0.15)] bg-parchment-old">
+            <span className="font-prata text-xs tracking-[0.2em] uppercase text-sepia/50">Thời gian </span>
+            <span className={`font-playfair text-sm font-bold ${timeLeft < 30 && isPlaying ? 'text-rose-400' : 'text-sepia'}`}>
               {phase === 'playing' ? fmtTime(timeLeft) : '--:--'}
             </span>
           </div>
           {phase === 'playing' && (
             <button onClick={handleHint} disabled={hintsLeft <= 0}
-              className={`px-3 py-2 border font-sc text-xs tracking-[0.15em] uppercase transition-all ${
+              className={`px-3 py-2 border font-prata text-xs tracking-[0.15em] uppercase transition-all ${
                 hintsLeft > 0
-                  ? 'border-[rgba(201,168,76,0.3)] text-[#c9a84c] hover:bg-[rgba(201,168,76,0.08)]'
-                  : 'border-[rgba(201,168,76,0.08)] text-[#3d3730] cursor-not-allowed'
+                  ? 'border-[rgba(201,168,76,0.3)] text-gold-classic hover:bg-[rgba(201,168,76,0.08)]'
+                  : 'border-gold-classic/10 text-sepia/40 cursor-not-allowed'
               }`}>
               Gợi ý ({hintsLeft})
             </button>
@@ -181,28 +181,28 @@ export const MatchingGame: React.FC = () => {
 
         {/* Progress */}
         <div className="flex-1 max-w-[160px] hidden sm:block">
-          <div className="h-px bg-[#1c1916] relative overflow-hidden">
+          <div className="h-px bg-parchment-old relative overflow-hidden">
             <div className="absolute inset-y-0 left-0 bg-[#c9a84c]/60 transition-all duration-500"
               style={{ width: `${progress}%` }} />
           </div>
-          <p className="font-sc text-xs tracking-[0.15em] uppercase text-[#5c5248] text-center mt-1">
+          <p className="font-prata text-xs tracking-[0.15em] uppercase text-sepia/50 text-center mt-1">
             {matchedCount / 2}/{totalCards / 2} cặp
           </p>
         </div>
-        <div className="px-4 py-2 border border-[rgba(201,168,76,0.15)] bg-[#12100e] text-right">
-          <span className="font-sc text-xs tracking-[0.2em] uppercase text-[#5c5248]">Điểm </span>
-          <span className="font-cinzel text-sm font-bold text-[#c8b99a]">{score}</span>
+        <div className="px-4 py-2 border border-[rgba(201,168,76,0.15)] bg-parchment-old text-right">
+          <span className="font-prata text-xs tracking-[0.2em] uppercase text-sepia/50">Điểm </span>
+          <span className="font-playfair text-sm font-bold text-sepia">{score}</span>
         </div>
       </div>
 
       <AnimatePresence mode="wait">
         {phase === 'idle' ? (
           <motion.div key="idle" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }}
-            className="w-full max-w-3xl border border-[rgba(201,168,76,0.15)] bg-[#0d0b09] p-8 md:p-10 relative overflow-hidden">
+            className="w-full max-w-3xl border border-[rgba(201,168,76,0.15)] bg-parchment-old/80 p-8 md:p-10 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-[#c9a84c]/20" />
             <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-[#c9a84c]/20" />
-            <p className="font-sc text-[#c9a84c]/50 text-xs tracking-[0.3em] uppercase mb-2">Hướng dẫn</p>
-            <h2 className="font-cinzel text-[#ddd0b8] text-2xl tracking-[0.08em] uppercase mb-8">Trò Chơi Ghép Thẻ</h2>
+            <p className="font-prata text-gold-classic/50 text-xs tracking-[0.3em] uppercase mb-2">Hướng dẫn</p>
+            <h2 className="font-playfair text-ink-old text-2xl tracking-[0.08em] uppercase mb-8">Trò Chơi Ghép Thẻ</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               {[
                 {
@@ -214,12 +214,12 @@ export const MatchingGame: React.FC = () => {
                   items: [`Ghép đúng: +${SCORE_MATCH} điểm`, `Ghép sai: −${SCORE_MISS} điểm`, `Bonus thắng: +${BONUS_PER_SEC}/giây còn lại`],
                 },
               ].map((col, i) => (
-                <div key={i} className="border border-[rgba(201,168,76,0.1)] p-5 bg-[#12100e]">
-                  <p className="font-cinzel text-[#c9a84c] text-xs tracking-[0.12em] uppercase mb-3">{col.title}</p>
+                <div key={i} className="border border-gold-classic/15 p-5 bg-parchment-old">
+                  <p className="font-playfair text-gold-classic text-xs tracking-[0.12em] uppercase mb-3">{col.title}</p>
                   <ul className="space-y-1.5">
                     {col.items.map((item, j) => (
-                      <li key={j} className="font-cormorant text-[#8a7660] text-base flex gap-2">
-                        <span className="text-[#c9a84c]/40 flex-none">·</span> {item}
+                      <li key={j} className="font-garamond text-sepia/60 text-base flex gap-2">
+                        <span className="text-gold-classic/40 flex-none">·</span> {item}
                       </li>
                     ))}
                   </ul>
@@ -265,20 +265,20 @@ export const MatchingGame: React.FC = () => {
                           className={`absolute inset-0 flex items-center justify-center transition-all
                             ${isHinted ? 'border-2 border-[#c9a84c] shadow-[0_0_16px_rgba(201,168,76,0.3)]' : 'border border-[rgba(201,168,76,0.2)]'}
                             ${isMiss ? 'border-rose-700/50' : isHit ? 'border-emerald-700/50' : ''}
-                            bg-[#12100e] hover:border-[rgba(201,168,76,0.4)]`}
+                            bg-parchment-old hover:border-[rgba(201,168,76,0.4)]`}
                           style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
                         >
-                          <div className="absolute inset-2 border border-dashed border-[rgba(201,168,76,0.08)]" />
-                          <span className="font-cinzel text-[#c9a84c]/25 text-3xl font-black">M</span>
+                          <div className="absolute inset-2 border border-dashed border-gold-classic/10" />
+                          <span className="font-playfair text-gold-classic/25 text-3xl font-black">M</span>
                         </div>
                         {/* Card front */}
                         <div
                           className={`absolute inset-0 flex items-center justify-center p-2 text-center
-                            ${isMiss ? 'border border-rose-700/60 bg-rose-950/20' : isHit ? 'border border-emerald-700/60 bg-emerald-950/20' : 'border border-[rgba(201,168,76,0.3)] bg-[#1c1916]'}`}
+                            ${isMiss ? 'border border-rose-700/60 bg-rose-950/20' : isHit ? 'border border-emerald-700/60 bg-emerald-950/20' : 'border border-[rgba(201,168,76,0.3)] bg-parchment-old'}`}
                           style={{ transform: 'rotateY(180deg) translateZ(1px)', backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
                         >
-                          <div className="absolute inset-1 border border-solid border-[rgba(201,168,76,0.08)]" />
-                          <span className="font-cormorant text-[#c8b99a] text-sm md:text-base leading-tight px-1">
+                          <div className="absolute inset-1 border border-solid border-gold-classic/10" />
+                          <span className="font-garamond text-sepia text-sm md:text-base leading-tight px-1">
                             {card.text}
                           </span>
                         </div>
@@ -297,12 +297,12 @@ export const MatchingGame: React.FC = () => {
                       {fbColors.icon}
                     </div>
                     <div className="min-w-0">
-                      <p className="font-cinzel text-[#c8b99a] text-sm tracking-[0.08em] uppercase mb-1">{feedback.title}</p>
-                      <p className="font-cormorant text-[#8a7660] text-base leading-relaxed">{feedback.body}</p>
+                      <p className="font-playfair text-sepia text-sm tracking-[0.08em] uppercase mb-1">{feedback.title}</p>
+                      <p className="font-garamond text-sepia/60 text-base leading-relaxed">{feedback.body}</p>
                     </div>
                   </div>
-                  <div className="mt-5 pt-4 border-t border-[rgba(201,168,76,0.08)]">
-                    <div className="flex justify-between font-sc text-xs tracking-[0.15em] uppercase text-[#5c5248]">
+                  <div className="mt-5 pt-4 border-t border-gold-classic/10">
+                    <div className="flex justify-between font-prata text-xs tracking-[0.15em] uppercase text-sepia/50">
                       <span>Tiến độ: {matchedCount / 2}/{totalCards / 2} cặp</span>
                       {phase === 'playing' && <span>Bonus: +{bonusPreview}</span>}
                     </div>
@@ -321,24 +321,24 @@ export const MatchingGame: React.FC = () => {
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
             <motion.div initial={{ scale: 0.85, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
               transition={{ type: 'spring', damping: 20, stiffness: 250 }}
-              className="max-w-md w-full bg-[#0d0b09] border border-emerald-800/40 p-8 relative">
+              className="max-w-md w-full bg-parchment-old border border-emerald-600/50 p-8 relative">
               <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-emerald-700/40" />
               <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-emerald-700/40" />
               <div className="text-center mb-6">
-                <div className="font-cinzel text-emerald-500 text-3xl mb-2">◈</div>
-                <p className="font-cinzel text-[#ddd0b8] text-sm tracking-[0.1em] uppercase">Ghép Đúng Rồi!</p>
+                <div className="font-playfair text-emerald-500 text-3xl mb-2">◈</div>
+                <p className="font-playfair text-ink-old text-sm tracking-[0.1em] uppercase">Ghép Đúng Rồi!</p>
               </div>
-              <div className="border border-emerald-900/40 bg-emerald-950/10 p-5 mb-6">
-                <p className="font-cinzel text-[#c8b99a] text-sm text-center mb-1">
+              <div className="border border-emerald-700/40 bg-emerald-50/80 p-5 mb-6">
+                <p className="font-playfair text-sepia text-sm text-center mb-1">
                   <span className="text-emerald-400">{modalData.term1}</span>
-                  <span className="text-[#5c5248] mx-2">↔</span>
+                  <span className="text-sepia/50 mx-2">↔</span>
                   <span className="text-emerald-400">{modalData.term2}</span>
                 </p>
                 <span className="block w-12 h-px bg-emerald-800/40 mx-auto my-3" />
-                <p className="font-cormorant text-[#8a7660] text-base leading-relaxed">{modalData.explanation}</p>
+                <p className="font-garamond text-sepia text-base leading-relaxed">{modalData.explanation}</p>
               </div>
               <button onClick={handleContinue}
-                className="w-full py-3 border border-emerald-700/40 text-emerald-400 font-sc text-xs tracking-[0.2em] uppercase hover:bg-emerald-950/30 transition-colors">
+                className="w-full py-3 border border-emerald-700/40 text-emerald-400 font-prata text-xs tracking-[0.2em] uppercase hover:bg-emerald-950/30 transition-colors">
                 Tiếp Tục
               </button>
             </motion.div>
@@ -350,23 +350,23 @@ export const MatchingGame: React.FC = () => {
       <AnimatePresence>
         {endState !== null && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-[#0a0906]/95 p-4">
+            className="fixed inset-0 z-50 flex items-center justify-center bg-parchment-light/95 p-4">
             <div className="max-w-2xl w-full text-center px-8">
               <motion.div initial={{ scale: 0.6, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.15, type: 'spring' }} className="mb-10">
-                <div className="font-cinzel text-[#c9a84c]/30 text-6xl mb-4">{endState === 'won' ? '♛' : '⌛'}</div>
-                <h2 className="font-cinzel text-[#ddd0b8] text-4xl md:text-5xl tracking-[0.1em] uppercase">
+                <div className="font-playfair text-gold-classic/30 text-6xl mb-4">{endState === 'won' ? '♛' : '⌛'}</div>
+                <h2 className="font-playfair text-ink-old text-4xl md:text-5xl tracking-[0.1em] uppercase">
                   {endState === 'won' ? 'Chiến Thắng' : 'Game Over'}
                 </h2>
               </motion.div>
               <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.4 }}
-                className="border border-[rgba(201,168,76,0.15)] bg-[#0d0b09] p-10 mb-8 relative">
+                className="border border-[rgba(201,168,76,0.15)] bg-parchment-old/80 p-10 mb-8 relative">
                 <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-[rgba(201,168,76,0.2)]" />
                 <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-[rgba(201,168,76,0.2)]" />
-                <p className="font-sc text-[#5c5248] text-xs tracking-[0.25em] uppercase mb-2">Tổng điểm</p>
-                <p className="font-cinzel text-[#c9a84c] text-6xl font-black tracking-wider">{finalScore ?? score}</p>
+                <p className="font-prata text-sepia/50 text-xs tracking-[0.25em] uppercase mb-2">Tổng điểm</p>
+                <p className="font-playfair text-gold-classic text-6xl font-black tracking-wider">{finalScore ?? score}</p>
                 <span className="block w-12 h-px bg-[rgba(201,168,76,0.2)] mx-auto mt-6 mb-4" />
-                <p className="font-fell italic text-[#5c5248]">
+                <p className="font-merriweather italic text-sepia/50">
                   {endState === 'won'
                     ? `Thời gian còn lại: ${timeLeft}s · Bonus: +${Math.max(0, timeLeft) * BONUS_PER_SEC}`
                     : 'Hãy thử lại để cải thiện thành tích của bạn.'}

@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <Suspense fallback={
-        <div className="min-h-screen bg-[#0a0906] flex items-center justify-center text-[#c9a84c] font-cinzel text-xl tracking-widest">
+        <div className="min-h-screen bg-parchment-light flex items-center justify-center text-sepia font-playfair text-2xl tracking-widest">
           Đang tải...
         </div>
       }>

@@ -1,26 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Cinzel:wght@400;500;600;700;900&family=Cormorant+SC:wght@300;400;500;600;700&family=IM+Fell+English:ital@0;1&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Prata&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-void:       #14110d;
-  --color-obsidian:   #1b1712;
-  --color-coal:       #1c1916;
-  --color-ash:        #2e2a25;
-  --color-dust:       #3d3730;
-  --color-parchment:  #c8b99a;
-  --color-vellum:     #e7dec8;
-  --color-cream:      #ede5d4;
-  --color-gold:       #e0c36e;
-  --color-amber:      #f0d58a;
-  --color-ember:      #b07030;
-  --color-ink:        #8a7660;
-  --color-fog:        #5c5248;
+  --color-parchment-light: #f4f1ea;
+  --color-parchment-old:   #ece6d9;
+  --color-ink-old:         #1a1a1a;
+  --color-sepia:           #433422;
+  --color-gold-classic:    #b08d57;
 
-  --font-cinzel:      "Cinzel", serif;
-  --font-cormorant:   "Cormorant Garamond", serif;
-  --font-sc:          "Cormorant SC", serif;
-  --font-fell:        "IM Fell English", serif;
+  --font-playfair:     "Playfair Display", serif;
+  --font-garamond:     "EB Garamond", serif;
+  --font-prata:        "Prata", serif;
+  --font-merriweather: "Merriweather", serif;
+  --font-inter:        "Inter", sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -28,9 +20,9 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background-color: var(--color-void);
-  color: var(--color-vellum);
-  font-family: "Cormorant Garamond", serif;
+  background-color: var(--color-parchment-light);
+  color: var(--color-ink-old);
+  font-family: "EB Garamond", serif;
   font-size: 1.1rem;
   line-height: 1.9;
 }
@@ -101,47 +93,42 @@ body::before {
 
 /* Chapter card */
 .chapter-card {
-  border: 1px solid rgba(224,195,110,0.22);
-
+  border: 1px solid rgba(176,141,87,0.25);
   background:
     linear-gradient(
       135deg,
-      rgba(34,30,26,0.96) 0%,
-      rgba(22,19,16,0.98) 100%
+      rgba(236,230,217,0.95) 0%,
+      rgba(244,241,234,0.98) 100%
     );
-
   backdrop-filter: blur(6px);
-
   box-shadow:
-    0 10px 30px rgba(0,0,0,0.35),
-    inset 0 1px 0 rgba(255,255,255,0.03);
-
+    0 10px 30px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.6);
   transition:
     border-color 0.3s,
     transform 0.3s,
     box-shadow 0.3s;
 }
 .chapter-card:hover {
-  border-color: rgba(224,195,110,0.55);
-
+  border-color: rgba(176,141,87,0.6);
   box-shadow:
-    0 14px 40px rgba(0,0,0,0.45),
-    0 0 18px rgba(224,195,110,0.08);
-
+    0 14px 40px rgba(0,0,0,0.12),
+    0 0 18px rgba(176,141,87,0.12);
   transform: translateY(-3px);
 }
 
 /* Gold button */
 .btn-gold {
+  background: transparent;
   display: inline-block;
   padding: 0.75rem 2.5rem;
-  border: 1px solid rgba(224,195,110,0.7);
-  color: var(--color-gold);
+  border: 1px solid #c9a84c;
+  color: #5c5248;
   font-family: "Cinzel", serif;
   font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  transition: all 0.4s;
+  transition: all 0.3s;
   position: relative;
   overflow: hidden;
 }
@@ -155,7 +142,7 @@ body::before {
   z-index: -1;
 }
 .btn-gold:hover::before { transform: translateX(0); }
-.btn-gold:hover { color: #0a0906; }
+.btn-gold:hover { background: #c9a84c; color: white; }
 
 /* Section heading */
 .sec-heading {
@@ -194,3 +181,21 @@ body::before {
   -webkit-backface-visibility: hidden;
 }
 .card-back { transform: rotateY(180deg); }
+
+.card {
+  background: #fffdf9;
+
+  border: 1px solid rgba(201,168,76,.18);
+
+  box-shadow:
+    0 8px 25px rgba(0,0,0,.04);
+
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+
+  border-color:
+    rgba(201,168,76,.45);
+}

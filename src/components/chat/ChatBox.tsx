@@ -114,18 +114,18 @@ export const ChatBox = () => {
             <div className="bg-red-800 text-parchment-light p-4 flex justify-between items-center shadow-md z-10">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-[#c9a84c] rounded-full animate-pulse"></div>
-                <h3 className="font-cinzel text-[#ddd0b8] text-sm tracking-[0.1em] uppercase">Biện Chứng AI</h3>
+                <h3 className="font-playfair text-ink-old text-sm tracking-[0.1em] uppercase">Biện Chứng AI</h3>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="text-[#8a7660] hover:text-[#c8b99a] transition-colors"
+                className="text-sepia/60 hover:text-sepia transition-colors"
               >
                 <X size={20} />
               </button>
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#0d0b09]">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-parchment-old/80">
               {messages.map((msg, index) => (
                 <div
                   key={index}
@@ -133,8 +133,8 @@ export const ChatBox = () => {
                 >
                   <div
                     className={`max-w-[80%] p-3 rounded-2xl shadow-sm ${msg.role === 'user'
-                      ? 'bg-[#c9a84c]/20 border border-[#c9a84c]/30 text-[#c8b99a] rounded-tr-none'
-                      : 'bg-[#1c1916] border border-[rgba(201,168,76,0.15)] text-[#c8b99a] rounded-tl-none'
+                      ? 'bg-[#c9a84c]/20 border border-[#c9a84c]/30 text-sepia rounded-tr-none'
+                      : 'bg-parchment-old border border-[rgba(201,168,76,0.15)] text-sepia rounded-tl-none'
                       }`}
                   >
                     {msg.role === 'user' ? (
@@ -149,7 +149,7 @@ export const ChatBox = () => {
               ))}
               {isLoading && (
                 <div className="flex justify-start">
-                  <div className="bg-[#1c1916] border border-[rgba(201,168,76,0.1)] p-3 rounded-2xl rounded-tl-none flex items-center gap-2">
+                  <div className="bg-parchment-old border border-gold-classic/15 p-3 rounded-2xl rounded-tl-none flex items-center gap-2">
                     <div className="w-2 h-2 bg-[#c9a84c]/50 rounded-full animate-bounce"></div>
                     <div className="w-2 h-2 bg-[#c9a84c]/50 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                     <div className="w-2 h-2 bg-[#c9a84c]/50 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
@@ -160,7 +160,7 @@ export const ChatBox = () => {
             </div>
 
             {/* Input area */}
-            <div className="p-3 bg-[#0d0b09] border-t border-[rgba(201,168,76,0.1)]">
+            <div className="p-3 bg-parchment-old/80 border-t border-gold-classic/15">
               <div className="flex items-center gap-2">
                 <input
                   type="text"
@@ -168,13 +168,13 @@ export const ChatBox = () => {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
                   placeholder="Hỏi về triết học Mác–Lênin..."
-                  className="flex-1 px-4 py-2 bg-[#1c1916] border border-[rgba(201,168,76,0.15)] text-[#c8b99a] text-sm focus:outline-none focus:border-[#c9a84c]/40 transition-colors placeholder:text-[#3d3730]"
+                  className="flex-1 px-4 py-2 bg-parchment-old border border-[rgba(201,168,76,0.15)] text-sepia text-sm focus:outline-none focus:border-[#c9a84c]/40 transition-colors placeholder:text-sepia/40"
                   disabled={isLoading}
                 />
                 <button
                   onClick={handleSend}
                   disabled={!input.trim() || isLoading}
-                  className="p-2 border border-[rgba(201,168,76,0.3)] text-[#c9a84c] disabled:opacity-30 hover:bg-[rgba(201,168,76,0.1)] transition-colors"
+                  className="p-2 border border-[rgba(201,168,76,0.3)] text-gold-classic disabled:opacity-30 hover:bg-[rgba(201,168,76,0.1)] transition-colors"
                 >
                   <Send size={18} />
                 </button>
@@ -186,7 +186,7 @@ export const ChatBox = () => {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-[#1c1916] border-2 border-[#c9a84c]/40 hover:border-[#c9a84c] text-[#c9a84c] p-4 rounded-full shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 flex items-center justify-center"
+        className="bg-parchment-old border-2 border-[#c9a84c]/40 hover:border-[#c9a84c] text-gold-classic p-4 rounded-full shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 flex items-center justify-center"
       >
         <MessageCircle size={28} />
       </button>
